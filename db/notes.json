@@ -1,0 +1,20 @@
+[
+    {
+        "note_id": "1263",
+        "date": "2.10.2021|17:4:27",
+        "title": "Still not completely working",
+        "text": "when a note is selected, it should appear here."
+    },
+    {
+        "note_id": "ad79",
+        "date": "2.10.2021|17:4:56",
+        "title": "Also the refresh not working",
+        "text": "It should refresh list automatically on save, not happening each time."
+    },
+    {
+        "note_id": "943f",
+        "date": "2.10.2021|17:5:9",
+        "title": "But now it is working",
+        "text": "So weird."
+    }
+]
