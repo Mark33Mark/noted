@@ -1,0 +1,13 @@
+
+# https://git-scm.com/docs/gitattributes
+
+# Seeing if this will stop the terminal warnings when 
+# I 'git add -A' a repository.  The following is meant
+# to auto detect text files and perform LF normalization
+# Following ensures that text files from any contributor 
+# introduced to the repository has their line endings 
+# normalized, sets the text attribute to "auto" for all 
+# files:
+
+* text=auto
+
