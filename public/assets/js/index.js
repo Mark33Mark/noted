@@ -7,6 +7,7 @@ let noteList;
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
+  saveNoteMsg = document.querySelector('.note-saved');
   saveNoteBtn = document.querySelector('.save-note');
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
@@ -33,6 +34,11 @@ const getNotes = () =>
     },
   });
 
+  // MW = added an alert as per the mini project
+  // there were problems with the page rendering 
+  // consistently when a task is added - worked
+  // intermittently so added to the promises.
+  
 const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',
@@ -40,7 +46,23 @@ const saveNote = (note) =>
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(note),
+  })
+  .then((response) => response.json())
+  .then((data) => saveMessage(data)
+  )
+  .catch((error) => {
+    console.error('Error:', error);
   });
+
+const saveMessage = message => {
+  saveNoteMsg.innerText = message;
+  saveNoteMsg.style.display = 'inline';
+  noteText.style.height = '4rem';
+  setTimeout( () => {
+    saveNoteMsg.innerText = "";
+    noteText.style.height = 'calc(100% - 63px)';
+  }, 2000);
+};
 
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
@@ -72,6 +94,7 @@ const handleNoteSave = () => {
     text: noteText.value,
   };
   saveNote(newNote).then(() => {
+    
     getAndRenderNotes();
     renderActiveNote();
   });
