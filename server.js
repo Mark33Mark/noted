@@ -4,7 +4,11 @@ const path      = require( "path" );
 const { clog }  = require( "./middleware/clog" );
 const api       = require( "./routes/index" );
 
-const PORT = process.env.port || 8888;
+// const PORT = process.env.port || 8888;
+
+// https://devcenter.heroku.com/articles/preparing-a-codebase-for-heroku-deployment
+let port = process.env.PORT;
+    if ( port === null || port === undefined || port === "" ) port = 8888;
 
 const app = express();
 
@@ -34,4 +38,7 @@ app.get('*', (req, res) =>
     res.sendFile(path.join(__dirname, 'public/index.html'))
 );
 
-app.listen( PORT, () => console.log( `\n👂 Listening at http://localhost:${PORT}  👂\n`));
+
+app.listen(port, () => console.log( `\n👂 Listening at http://localhost:${port}  👂\n`));
+
+
