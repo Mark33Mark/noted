@@ -1,6 +1,6 @@
 ![Mark Watson](./public/assets/img/notes_banner.jpg)
 # USYD-FSF Week11 Project
-## Express.js: Note Taked
+## Express.js: Note Taker
 
 ### Table of Contents  
   
@@ -18,56 +18,46 @@
 ---
 ### 1. Description  
 **What is this project?**  
-* An updated version of my portfolio webpage created in week 2 of the Bootcamp Course.  This project provides potential employers with samples of my work for them to assess if I'm a good candidate for an open position.  
+* Simple application demonstrating the benefits of server side data storage by allowing a user to write and save notes to organize and keep track of their tasks.
 
 **Why this project?**  
-* To find employment it is essential to have a good portfolio of professional materials to demonstrates my capability as a developer. 
+* Demonstrates my understanding of building the back end of a web hosted application and my knowledge with deploying applications on Heroku.
 
-![landing page](./img/FSF_webpage_landing.jpeg)
-![gallery](./img/FSF_webpage_gallery.jpeg)
-![contact](./img/FSF_webpage_contact.jpeg)
-![night switch](./img/FSF_webpage_gallery_inverted.jpeg)
+![hosted landing page](./public/assets/img/screenshot1.jpg) ![note space](./public/assets/img/screenshot2.jpg) ![saved confirmation](./public/assets/img/screenshot3.jpg)
+
 
 **What problem does this project solve?**  
-* Provides a polished mobile responsive website to canvas my capability with links to my Github and LinkedIn for potential employers to consider me for a job.
+* Provides a place to write and keep notes that can easily be retrieved by revisiting the website, providing the save function for the note was completed beforehand.
 
 **Lessons learnt?**  
-* Whilst I've improved with my implementation of ideas I need to improve with agreeing very early in the process what ideas are realistic for an MVP / assignment satisfying criteria.  I find I lose a lot of time playing with challenging ideas and then panic near the deadline that I'm not going to get an MVP that I'm at least happy with.
-* A minimalist design is probably more work than a noisy busy page.  So much additional thought in styling is needed to work out how to handle elements to achieve minimalism.
-* I spent a lot of time looking at a couple of alternative CSS frameworks, came close to using Bulma but decided to go it on my own.  I'm glad I did as there are convenient tools in the frameworks that I can easily build myself.
-* GitHub does not provide PHP and they refer you to FormSpree.  I spent a bit of time on a PHP file that worked as I tested it on my host site only to find out that GitHub don't offer it.  The free, like all the free services, is a bit limited.  There is an auto-respond function / plugin but you need to pay minimum $8 per month for it.  I'm not doing it as I have the ability through my host site to do it.  Anyhow, users via the GitHub deployed site can still fill in the form and I'll receive their email, they just won't receive an auto-response.
+* Easier to use Heroku's facility to connect to the GitHub repository instead of having to juggle pushing commits to both heroku and GitHub.
+* Establish and maintain a good directory / folder structure for the application and follow it throughout development.
 
 ---
 ### 2. Features  
 Client requested features as implemented:  
-- updated portfolio webpage with links to my GitHub and LinkedIn profiles.
-- my webpage has a link for users to download a pdf version of my resume.
-- my webpage showcases at least 2 examples from my bootcamp student work.  Each example includes a project title, link to deployed version, link to the GitHub repository and a screenshot of the application.
-- the webpage has a polished and mobile-responsive user interface.
-- the webpage is designed as 'mobile-first', has a color palette that doesn't use default CSS framwork's colours and has a styled expression;
-- the webpage fonts and colours selected are not to cause eye strain.
-- my GitHub page has a profile picture or avatar, biography, email address, link to deployed my deployed portfolio page and at least 2 pinned repositories.
-- all my pinned projects include a README file.
-- all pinned projects have a commit history.
-- my downloadable resume has a heading with my name, phone number, professional email address, links to LinkedIn, portfolio and GitHub.
-- my resume includes a technical skills section, with all programming languages and technologies listed.
-- my resume has 3 of my strongest projects/homework assignments with a brief description, programming languages used, and URL.
-- My LinkedIn Profile is updated with a strong bio statement, a professional photo, and links to your Github and portfolio.
+- has a landing page with a link to a notes page
+- clicking on the link to the notes page present the user with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column
+- entering a new note title and the note’s text causes the 'Save' icon to appear in the navigation pane at the top of the page
+- clicking on the Save icon has the new note just entered saved and appearing in the left-hand column with the other existing notes
+- clicking on an existing note in the list in the left-hand column results in the note appearing in the right-hand column
+- clicking on the Write icon in the navigation at the top of the page provides an empty field to enter a new note title and the note’s text in the right-hand column.
+- for saved notes, clicking on the bin icon deletes the note entry from the saved notes.
 
 ---
 ### 3. Installation  
-You can download the source code from [my Github repository](https://github.com/Mark33Mark/FSF-developer-portfolio)  and open the index.html file to review the website inside your selected web browser.  
-Alternatively, the webpage has also been hosted via [URL: job.watsonised.com](https://hire.watsonised.com)
+You can download the source code from [my Github repository](https://github.com/Mark33Mark/noted)  and open the index.html file to review the website inside your selected web browser.  
+Alternatively, the webpage is hosted at [URL: https://not3d.herokuapp.com/](https://not3d.herokuapp.com/)
 
 ---
 ### 4. Usage  
 The code can be downloaded from [my Github repository](https://github.com/Mark33Mark/noted) for all assets created for the project.  
 You can modify the code as you need.
-The application is hosted on heroku: [heroku](https://github.com/Mark33Mark/noted)
+The application is hosted on [Heroku](https://not3d.herokuapp.com/)
 
 ---
 ### 5. Credits  
-Starter code provided by the Bootcamp Coding Course was for all the front end.  There was no back end code provided.  All back end coding was by me and I completed some refactoring of the front end.  Thanks to Bootcamp for a well thought out and coded front end.
+University of Sydney's Bootcamp Coding course for the starter code provided for the front end / client side.  There was no back end code provided.  All back end coding was by me and I completed some refactoring of the front end.  Thanks to Bootcamp for a well thought out and coded client side.
 
 ---
 ### 6. License  
@@ -92,31 +82,26 @@ Starter code provided by the Bootcamp Coding Course was for all the front end.  
 
 ---
 ### 9. Tests  
-- No unit test have been prepared for this project.  Testing on devices completed.
+- No unit test have been prepared for this project.  Testing on devices completed.  I wanted to but ran out of time.
 
 ---
 ### 10. Checklist  
  All actions not checked are still to be completed:
-* [x]  Updated portfolio webpage with links to my GitHub and LinkedIn profiles.
-* [x]  Webpage has a link for users to download a pdf version of my resume.
-* [x]  Webpage showcases at least 2 examples from my bootcamp student work.  Each example includes a project title, link to deployed version, link to the GitHub repository and a screenshot of the application.
-* [x]  Webpage has a polished and mobile-responsive user interface. [URL: job.watsonised.com](https://hire.watsonised.com)
-* [x]  Webpage is designed as 'mobile-first', has a color palette that doesn't use default CSS framwork's colours and has a styled expression;
-* [x]  Webpage fonts and colours selected are not to cause eye strain.
-* [x]  GitHub page has a profile picture or avatar, biography, email address, link to deployed my deployed portfolio page and at least 2 pinned repositories.
-* [x]  All my pinned projects include a README file.
-* [x]  All pinned projects have a commit history.
-* [x]  Resume is downloadable and has a heading with my name, phone number, professional email address, links to LinkedIn, portfolio and GitHub.
-* [x]  Resume includes a technical skills section, with all programming languages and technologies listed.
-* [x]  Resume has 3 of my strongest projects/homework assignments with a brief description, programming languages used, and URL.
-* [x]  LinkedIn Profile is updated with a strong bio statement, a professional photo, and links to your Github and portfolio. 
+
+* [x]  Application front end connects to an Express.js back end.
+* [x]  Application back end / server side stores notes with a unique id in a JSON file.
+* [x]  Application is deployed live on Heroku with [URL: not3d.herokuapp.com](https://not3d.herokuapp.com/)
 * [x]  Application loads with no errors.
-* [x]  Github repository contains application code [Github location](https://github.com/Mark33Mark/FSF-developer-portfolio)
+* [x]  GitHub repository contains application code [Github location](https://github.com/Mark33Mark/noted)
+* [x]  The GitHub repository contains all the application code.
+* [x]  Application console is free of errors.
 * [x]  Repository has a unique name; follows best practice for file structure; and naming conventions.
 * [x]  The application resembles the mock-up functionality provided in the assigment instructions.
 * [x]  Repsository follows best practices for class/id naming conventions, indentation, quality comments, etc.
 * [x]  Repository contains multiple descriptive commit messages.
 * [x]  Repository contains a README file with descriptio, screenshot and link to deployed application.
+* [x]  Application allows user to delete notes.
+
 ---
 
 - [Back to the top](#usyd-fsf-week11-project)
