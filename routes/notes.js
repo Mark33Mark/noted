@@ -51,11 +51,11 @@ noted.post( "/", ( req, res ) => {
   // https://stackoverflow.com/questions/2998784/how-to-output-numbers-with-leading-zeros-in-javascript
   
   const today         = new Date(),
-        currentHour   = adjustedNumber(today.getHours(), 2),
-        currentMinute = adjustedNumber(today.getMinutes(), 2),
-        currentSecond = adjustedNumber(today.getSeconds(), 2);
+        currentHour   = adjustedNumber( today.getUTCHours(), 2 ),
+        currentMinute = adjustedNumber( today.getUTCMinutes(), 2 ),
+        currentSecond = adjustedNumber( today.getUTCSeconds(), 2 );
 
-  const timestamp = today.getDay() + "." + today.getMonth()+ "." + today.getFullYear()+ " @ " + 
+  const timestamp = "(UTC) " + today.getUTCDay() + "." + today.getUTCMonth()+ "." + today.getUTCFullYear()+ " @ " + 
                     currentHour + ":" + currentMinute + ":" + currentSecond;
 
   const { title, text } = req.body;
