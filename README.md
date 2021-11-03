@@ -23,7 +23,7 @@
 **Why this project?**  
 * Demonstrates my understanding of building the back end of a web hosted application and my knowledge with deploying applications on Heroku.
 
-![hosted landing page](./public/assets/img/screenshot1.jpg) ![note space](./public/assets/img/screenshot2.jpg) ![saved confirmation](./public/assets/img/screenshot3.jpg)
+![hosted landing page](./public/assets/img/screenshot1.jpg) ![note space](./public/assets/img/screenshot2.jpg) ![saved confirmation](./public/assets/img/screenshot3.jpg) ![timestamp and editable saved messages](./public/assets/img/screenshot4.jpg)
 
 
 **What problem does this project solve?**  
@@ -32,6 +32,7 @@
 **Lessons learnt?**  
 * Easier to use Heroku's facility to connect to the GitHub repository instead of having to juggle pushing commits to both heroku and GitHub.
 * Establish and maintain a good directory / folder structure for the application and follow it throughout development.
+* Time stamp ended up being a pain as Heroku server's are understandably set to UTC so the time stamp is not local.  Messed around trying to adjust for local time but opted for the easier solution of marking the timestamp as UTC.  Could use Moment.js in future revision or a user settings area for them to provide their local time offset.
 
 ---
 ### 2. Features  
@@ -43,6 +44,7 @@ Client requested features as implemented:
 - clicking on an existing note in the list in the left-hand column results in the note appearing in the right-hand column
 - clicking on the Write icon in the navigation at the top of the page provides an empty field to enter a new note title and the note’s text in the right-hand column.
 - for saved notes, clicking on the bin icon deletes the note entry from the saved notes.
+- I disabled the 'read-only' for saved messages as I got the delete function to work so the user can easily delete the former note or repurpose it.  Messages are time stamped (UTC) to help them keep track of their notes.
 
 ---
 ### 3. Installation  
