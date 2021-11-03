@@ -5,6 +5,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-y: hidden;
 }
 
 .save-note {
@@ -14,6 +15,10 @@ body {
 .custom-bg{
   padding: 2rem 2rem;
   background-color: rgb(185, 175, 135);
+}
+
+.allow-overflow{
+  overflow-y: auto;
 }
 
 .icons i {
