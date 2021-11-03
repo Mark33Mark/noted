@@ -1,20 +1,14 @@
 [
     {
-        "note_id": "1263",
-        "date": "2.10.2021|17:4:27",
-        "title": "Still not completely working",
-        "text": "when a note is selected, it should appear here."
+        "note_id": "08a3",
+        "date": "3.10.2021|15:0:9",
+        "title": "Get car serviced",
+        "text": "20,000km service needed before end Dec-21"
     },
     {
-        "note_id": "ad79",
-        "date": "2.10.2021|17:4:56",
-        "title": "Also the refresh not working",
-        "text": "It should refresh list automatically on save, not happening each time."
-    },
-    {
-        "note_id": "943f",
-        "date": "2.10.2021|17:5:9",
-        "title": "But now it is working",
-        "text": "So weird."
+        "note_id": "4315",
+        "date": "3.10.2021|15:0:53",
+        "title": "Call Charles",
+        "text": "Business proposal - needs for funding."
     }
 ]
