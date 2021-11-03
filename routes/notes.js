@@ -37,14 +37,26 @@ noted.get("/:id", ( req, res ) => {
 
 // ================================================================================================
 
+let adjustedNumber = ( num, size ) => {
+  let s = "00" + num;
+  return s.substr(s.length-size);
+};
+
 // POST Route for a new note
 noted.post( "/", ( req, res ) => {
   
   console.log( req.body );
 
-  const today = new Date();
-  const timestamp = today.getDay() + "." + today.getMonth()+ "." + today.getFullYear()+ "|" + 
-                    today.getHours()+ ":" + today.getMinutes() + ":" + today.getSeconds();
+  // Thanks again to stackoverflow for speeding up the problem solving process, amazing resource.
+  // https://stackoverflow.com/questions/2998784/how-to-output-numbers-with-leading-zeros-in-javascript
+  
+  const today         = new Date(),
+        currentHour   = adjustedNumber(today.getHours(), 2),
+        currentMinute = adjustedNumber(today.getMinutes(), 2),
+        currentSecond = adjustedNumber(today.getSeconds(), 2);
+
+  const timestamp = today.getDay() + "." + today.getMonth()+ "." + today.getFullYear()+ " @ " + 
+                    currentHour + ":" + currentMinute + ":" + currentSecond;
 
   const { title, text } = req.body;
 
