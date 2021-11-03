@@ -14,12 +14,12 @@ if (window.location.pathname === '/notes') {
 }
 
 // Show an element
-const show = (elem) => {
+const show = ( elem ) => {
   elem.style.display = 'inline';
 };
 
 // Hide an element
-const hide = (elem) => {
+const hide = ( elem ) => {
   elem.style.display = 'none';
 };
 
@@ -75,16 +75,16 @@ const deleteNote = (id) =>
 const renderActiveNote = () => {
   hide(saveNoteBtn);
 
-  if (activeNote.note_id) {
-    noteTitle.setAttribute('readonly', true);
-    noteText.setAttribute('readonly', true);
+  if ( activeNote.note_id ) {
+    noteTitle.setAttribute( "readonly", true );
+    // noteText.setAttribute( "readonly", false );
     noteTitle.value = activeNote.title;
-    noteText.value = activeNote.text;
+    noteText.value = `${activeNote.text}\n\nsaved on:  ${activeNote.date}`;
   } else {
-    noteTitle.removeAttribute('readonly');
-    noteText.removeAttribute('readonly');
-    noteTitle.value = '';
-    noteText.value = '';
+    noteTitle.removeAttribute( "readonly" );
+    // noteText.removeAttribute( "readonly" );
+    noteTitle.value = "";
+    noteText.value = "";
   }
 };
 
@@ -119,9 +119,9 @@ const handleNoteDelete = ( e ) => {
 };
 
 // Sets the activeNote and displays it
-const handleNoteView = (e) => {
+const handleNoteView = ( e ) => {
   e.preventDefault();
-  activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
+  activeNote = JSON.parse( e.target.parentElement.getAttribute( "data-note" ));
   renderActiveNote();
 };
 
