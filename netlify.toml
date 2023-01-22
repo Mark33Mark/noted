@@ -1,0 +1,11 @@
+[functions]
+node_bundler = "esbuild"
+#included_files=["./db/notes.json"]
+[dev]
+port = 8989
+publish = "public"
+[build]
+command = "# no build command"
+# command = "npm run build"
+functions = "netlify/functions"
+publish = "public"
