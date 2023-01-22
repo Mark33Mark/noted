@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('icomoon.eot?tbzflo');
-  src:  url('icomoon.eot?tbzflo#iefix') format('embedded-opentype'),
-    url('icomoon.ttf?tbzflo') format('truetype'),
-    url('icomoon.woff?tbzflo') format('woff'),
-    url('icomoon.svg?tbzflo#icomoon') format('svg');
+  src:  url('icomoon.eot?ypjdf3');
+  src:  url('icomoon.eot?ypjdf3#iefix') format('embedded-opentype'),
+    url('icomoon.ttf?ypjdf3') format('truetype'),
+    url('icomoon.woff?ypjdf3') format('woff'),
+    url('icomoon.svg?ypjdf3#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,97 +25,98 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-SVG_express:before {
-  content: "\e91a";
-}
-.icon-SVG_nodeJS:before {
-  content: "\e91d";
-  color: #3ca300;
-}
-.icon-SVG_team_icon1:before {
-  content: "\e91c";
-}
-.icon-SVG_engineer-icon:before {
-  content: "\e918";
-}
-.icon-SVG_intern-icon:before {
-  content: "\e919";
-}
-.icon-SVG_manager-icon:before {
-  content: "\e91b";
-}
-.icon-SVG_analysis:before {
+.icon-SVG_aws-lambda:before {
   content: "\e900";
 }
-.icon-SVG_Award:before {
+.icon-SVG_analysis:before {
   content: "\e901";
 }
-.icon-SVG_award_clearStar:before {
+.icon-SVG_Award:before {
   content: "\e902";
 }
-.icon-SVG_barGraph:before {
+.icon-SVG_award_clearStar:before {
   content: "\e903";
 }
-.icon-SVG_briefcase:before {
+.icon-SVG_barGraph:before {
   content: "\e904";
 }
-.icon-SVG_circleGraph:before {
+.icon-SVG_briefcase:before {
   content: "\e905";
 }
-.icon-SVG_completed:before {
+.icon-SVG_circleGraph:before {
   content: "\e906";
 }
-.icon-SVG_Envelope:before {
+.icon-SVG_completed:before {
   content: "\e907";
 }
-.icon-SVG_Envelope_tight:before {
+.icon-SVG_Envelope:before {
   content: "\e908";
 }
-.icon-SVG_Github:before {
+.icon-SVG_Envelope_tight:before {
   content: "\e909";
 }
-.icon-SVG_github_repo:before {
+.icon-SVG_Github:before {
   content: "\e90a";
 }
-.icon-SVG_Graduated:before {
+.icon-SVG_github_repo:before {
   content: "\e90b";
 }
-.icon-SVG_happy_client:before {
+.icon-SVG_Graduated:before {
   content: "\e90c";
 }
-.icon-SVG_Home:before {
+.icon-SVG_happy_client:before {
   content: "\e90d";
 }
-.icon-SVG_Linkedin:before {
+.icon-SVG_Home:before {
   content: "\e90e";
 }
-.icon-SVG_menu_burger:before {
+.icon-SVG_Linkedin:before {
   content: "\e90f";
 }
-.icon-SVG_MW_logo:before {
+.icon-SVG_menu_burger:before {
   content: "\e910";
-  color: #60a2fd;
 }
-.icon-SVG_myBrand:before {
+.icon-SVG_MW_logo:before {
   content: "\e911";
 }
-.icon-SVG_PaperPlane:before {
+.icon-SVG_myBrand:before {
   content: "\e912";
 }
-.icon-SVG_SustainableIdea_1:before {
+.icon-SVG_PaperPlane:before {
   content: "\e913";
 }
-.icon-SVG_team_icon:before {
+.icon-SVG_SustainableIdea_1:before {
   content: "\e914";
 }
-.icon-SVG_Whatsapp:before {
+.icon-SVG_team_icon:before {
   content: "\e915";
 }
-.icon-image:before {
+.icon-SVG_Whatsapp:before {
   content: "\e916";
 }
-.icon-camera:before {
+.icon-image:before {
   content: "\e917";
+}
+.icon-camera:before {
+  content: "\e918";
+}
+.icon-SVG_engineer-icon:before {
+  content: "\e919";
+}
+.icon-SVG_intern-icon:before {
+  content: "\e91a";
+}
+.icon-SVG_express:before {
+  content: "\e91b";
+}
+.icon-SVG_manager-icon:before {
+  content: "\e91c";
+}
+.icon-SVG_team_icon1:before {
+  content: "\e91d";
+}
+.icon-SVG_nodeJS:before {
+  content: "\e91e";
 }
 .icon-file-picture:before {
   content: "\e927";

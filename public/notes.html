@@ -26,8 +26,8 @@
     <nav class="navbar navbar-dark custom-bg">
       <a class="navbar-brand" href="/">Noted</a>
       <div class="icons">
-        <i class="fas fa-save text-light save-note"></i>
-        <i class="fas fa-plus text-light new-note"></i>
+        <div class="fas fa-save text-light save-note"></div>
+        <div class="fas fa-plus text-light new-note" title="start typing a title and text below for the save button to appear."></div>
       </div>
     </nav>
     <div class="container-fluid">
@@ -38,13 +38,19 @@
           </div>
         </div>
         <div class="col-8">
-          <input
+          <textarea
+            rows="1"
             class="note-title"
-            placeholder="Note Title"
-            maxlength="50"
-            type="text"
-          />
-          <textarea class="note-textarea" placeholder="Note Text"></textarea><span class="note-saved"></span>
+            placeholder="➡️ title here - required to save"
+          >
+          </textarea>
+          <hr />
+          <textarea 
+            class="note-textarea" 
+            placeholder="➡️ note text here - required to save"
+          >
+        </textarea>
+        <span class="note-saved"></span>
         </div>
       </div>
     </div>
