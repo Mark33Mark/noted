@@ -50,7 +50,7 @@ exports.handler =  ( event, context, callback ) => {
       " \" , \""      +  
       payload.title   + 
       " \" , \""      + 
-      payload.test    + 
+      payload.text    + 
       "\" )";
   
   sql_query += query_parameters;
