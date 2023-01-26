@@ -3,14 +3,6 @@ const uuid    = require( "./helpers/uuid" );
 
 // ------------------------------------------------------------
 
-const adjustedNumber = ( num, size ) => {
-  let s = "00" + num;
-  return s.substring(s.length-size);
-};
-
-const weekday = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-
 const fgCyan = "\x1b[36m";
 const fgReset = "\x1b[0m";
 
@@ -20,20 +12,23 @@ exports.handler =  ( event, context, callback ) => {
 
   context.callbackWaitsForEmptyEventLoop = false;
 
-  const today   = new Date(),
-  currentHour   = adjustedNumber( today.getHours(), 2 ),
-  currentMinute = adjustedNumber( today.getMinutes(), 2 ),
-  currentSecond = adjustedNumber( today.getSeconds(), 2 );
+  const options = {
+    year: 'numeric', month: 'short', day: 'numeric',
+    hour: 'numeric', minute: 'numeric', second: 'numeric',
+    hour12: false,
+    timeZone: 'Australia/Sydney',
+    timeZoneName: 'short'
+  };
 
-  const timestamp = "| " + Intl.DateTimeFormat().resolvedOptions().timeZone + " | on " +weekday[today.getDay()] + ". ➡️ " + adjustedNumber(today.getDate(),2) + "." + month[today.getMonth()]+ "." + today.getFullYear()+ " @ " + 
-              currentHour + ":" + currentMinute + ":" + currentSecond;
+  const today   = new Date();
+  const local_timestamp = new Intl.DateTimeFormat('en-AU', options).format(today);
 
   const { title, text } = JSON.parse(event.body);
 
   const payload = 
     {
       note_id: uuid(),
-      date: timestamp,
+      date: local_timestamp,
       title: title,
       text: text
     };
