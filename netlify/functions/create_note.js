@@ -23,7 +23,7 @@ exports.handler =  ( event, context, callback ) => {
 };
 
 const today   = new Date();
-const local_timestamp = new Intl.DateTimeFormat('default', options).format(today);
+const local_timestamp = new Intl.DateTimeFormat('best fit', options).format(today);
 
   console.log('local_timezone = ', local_timezone);
 
