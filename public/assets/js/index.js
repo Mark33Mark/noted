@@ -13,6 +13,9 @@ if (window.location.pathname === '/notes') {
   noteList = document.querySelectorAll('.list-container .list-group');
 }
 
+// get local timezone
+const local_timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
 // Show an element
 const show = ( elem ) => {
   elem.style.display = 'inline';
@@ -81,6 +84,7 @@ const renderActiveNote = () => {
 
 const handleNoteSave = () => {
   const newNote = {
+    local_timezone: local_timezone,
     title: noteTitle.value,
     text: noteText.value,
   };
@@ -152,7 +156,7 @@ const saveMessage = message => {
   setTimeout( () => {
     saveNoteMsg.innerText = '';
     noteText.style.height = 'calc(100% - 63px)';
-  }, 2000);
+  }, 1000);
   
 };
 

@@ -12,19 +12,20 @@ exports.handler =  ( event, context, callback ) => {
 
   context.callbackWaitsForEmptyEventLoop = false;
 
+  const { local_timezone, title, text } = JSON.parse(event.body);
+
   const options = {
     year: 'numeric', month: 'short', day: 'numeric',
     hour: 'numeric', minute: 'numeric', second: 'numeric',
     hour12: false,
-    localeMatch: 'lookup',
-    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    timeZone: local_timezone,
     timeZoneName: 'short'
 };
 
 const today   = new Date();
-const local_timestamp = new Intl.DateTimeFormat('lookup', options).format(today);
+const local_timestamp = new Intl.DateTimeFormat('default', options).format(today);
 
-  const { title, text } = JSON.parse(event.body);
+  console.log('local_timezone = ', local_timezone);
 
   const payload = 
     {
@@ -35,8 +36,6 @@ const local_timestamp = new Intl.DateTimeFormat('lookup', options).format(today)
     };
 
   let sql_query = "INSERT INTO `not3d`(`note_id`, `date`, `title`, `text`) VALUES ";
-  
-  console.log(payload);
 
   let query_parameters = 
       "( \""          + 
@@ -50,8 +49,6 @@ const local_timestamp = new Intl.DateTimeFormat('lookup', options).format(today)
       "\" )";
   
   sql_query += query_parameters;
-
-  console.log("sql_query = ", sql_query);
   
   try {
 
