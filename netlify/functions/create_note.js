@@ -16,12 +16,13 @@ exports.handler =  ( event, context, callback ) => {
     year: 'numeric', month: 'short', day: 'numeric',
     hour: 'numeric', minute: 'numeric', second: 'numeric',
     hour12: false,
-    timeZone: 'Australia/Sydney',
+    localeMatch: 'lookup',
+    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     timeZoneName: 'short'
-  };
+};
 
-  const today   = new Date();
-  const local_timestamp = new Intl.DateTimeFormat('en-AU', options).format(today);
+const today   = new Date();
+const local_timestamp = new Intl.DateTimeFormat('lookup', options).format(today);
 
   const { title, text } = JSON.parse(event.body);
 
