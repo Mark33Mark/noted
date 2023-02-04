@@ -5,7 +5,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 .navbar-brand, 
@@ -48,7 +48,7 @@ body {
 
 .ico-icons{
   font-size: 1.85rem;
-  vertical-align:middle,
+  vertical-align:middle;
   display: inline;
 }
 
@@ -73,7 +73,7 @@ body {
 
 .note-textarea {
   resize: none;
-  height: calc(100% - 63px);
+  height: calc(90% - 63px);
   padding-top: 15px;
 }
 
