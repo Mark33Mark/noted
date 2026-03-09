@@ -1,5 +1,5 @@
-const db_connect = require( "./utils/db_connection.js" );
-const uuid    = require( "./helpers/uuid" );
+import {connection} from "./utils/db_connection";
+import {uuid} from "./helpers/uuid";
 
 // ------------------------------------------------------------
 
@@ -8,7 +8,7 @@ const fgReset = "\x1b[0m";
 
 // ------------------------------------------------------------
 
-exports.handler =  ( event, context, callback ) => {
+export const handler = async (event, context) => {
 
   context.callbackWaitsForEmptyEventLoop = false;
 
@@ -20,70 +20,57 @@ exports.handler =  ( event, context, callback ) => {
     hour12: false,
     timeZone: local_timezone,
     timeZoneName: 'short'
-};
+  };
 
-const today   = new Date();
-const local_timestamp = new Intl.DateTimeFormat('en-AU', options).format(today);
+  const today = new Date();
+  const local_timestamp = new Intl.DateTimeFormat('en-AU', options).format(today);
 
   console.log('local_timezone = ', local_timezone);
 
-  const payload = 
-    {
-      note_id: uuid(),
-      date: local_timestamp,
-      title: title,
-      text: text
-    };
+  const payload =
+  {
+    note_id: uuid(),
+    date: local_timestamp,
+    title: title,
+    text: text
+  };
+
+
 
   let sql_query = "INSERT INTO `not3d`(`note_id`, `date`, `title`, `text`) VALUES ";
 
-  let query_parameters = 
-      "( \""          + 
-      payload.note_id + 
-      " \" , \""      + 
-      payload.date    +
-      " \" , \""      +  
-      payload.title   + 
-      " \" , \""      + 
-      payload.text    + 
-      "\" )";
-  
+  let query_parameters =
+    "( \"" +
+    payload.note_id +
+    " \" , \"" +
+    payload.date +
+    " \" , \"" +
+    payload.title +
+    " \" , \"" +
+    payload.text +
+    "\" )";
+
   sql_query += query_parameters;
-  
+
   try {
 
-    db_connect.getConnection(function(err, connected) {
+        const result = await connection.execute(sql_query);
 
-      connected.execute( sql_query, ( error, result) => {
+        console.log("SQL_QUERY = ", sql_query);
 
-      if (error){ 
+        // await connection.end();
+    
+        return {
+          statusCode: 200,
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(`🙌 Note added successfully 🙌`)
+        };
 
-        console.log('calling callback with error')
-        callback(error);
 
-      } else {
-
-        if(result.length === 0){
-          console.log("Note not in database, add it?");
-          }
-        
-        console.log(result)
-
-          callback( null, {
-              statusCode: 200,
-              headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify( `🙌 Note added successfully 🙌` )
-            })
-        }
-      })
-
-    if(err) { console.log('db_connect error = ', err); }
-
-  })
-} catch (e) {
+  } catch (e) {
     console.log('There is a problem communicating with the Not3d database: ', e);
   }
 }

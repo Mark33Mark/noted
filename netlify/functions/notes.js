@@ -1,45 +1,35 @@
-const db_connect = require( "./utils/db_connection.js" );
+import { connection } from "./utils/db_connection";
+
 const sql_query = "SELECT * FROM not3d";
 
-const fgCyan  = "\x1b[36m";
+const fgCyan = "\x1b[36m";
 const fgReset = "\x1b[0m";
 
 // ------------------------------------------------------------
 
-exports.handler = ( event, context, callback ) => {
+export const handler = async (event, context) => {
 
   context.callbackWaitsForEmptyEventLoop = false;
 
-  console.info( `\n📗 \t ${fgCyan}${event.httpMethod} request to ${event.path}${fgReset} \t ➡️ \t 🤗 \n` );
+  console.info(`\n📗 \t ${fgCyan}${event.httpMethod} request to ${event.path}${fgReset} \t ➡️ \t 🤗 \n`);
 
   try {
 
-    db_connect.getConnection(function(err, connected) {
+    const [rows ] = await connection.execute(sql_query)
 
-      connected.execute( sql_query, (error, results) => {
+    // await connection.end();
 
-      if (error){ 
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(rows)
+    };
 
-        console.log('calling callback with error')
-        callback(error);
 
-      } else {
-
-          callback( null, {
-              statusCode: 200,
-              headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(results)
-          })
-        }
-      })
-
-    if(err) { console.log('db_connect error = ', err); }
-
-  })
-} catch (e) {
-    console.log('There is a problem communicating with the Quotes database: ', e);
+  } catch (e) {
+    console.log('There is a problem communicating with the Not3d database: ', e);
   }
 }

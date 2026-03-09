@@ -1,5 +1,6 @@
 let noteTitle;
 let noteText;
+let saveNoteMsg;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
@@ -228,8 +229,8 @@ const prepareNoteList = ( data ) => {
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
   newNoteBtn.addEventListener('click', handleNewNoteView);
-  noteTitle.addEventListener('keyup', handleRenderSaveBtn);
-  noteText.addEventListener('keyup', handleRenderSaveBtn);
+  noteTitle.addEventListener('input', handleRenderSaveBtn);
+  noteText.addEventListener('input', handleRenderSaveBtn);
 }
 
 //  getAndRenderNotes();

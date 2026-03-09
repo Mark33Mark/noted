@@ -1,11 +1,11 @@
-const db_connect = require( "./utils/db_connection.js" );
+import { connection } from "./utils/db_connection";
 
 const fgCyan = "\x1b[36m";
 const fgReset = "\x1b[0m";
 
 // ------------------------------------------------------------
 
-exports.handler = (event, context, callback) => {
+export const handler = async (event, context) => {
 
   context.callbackWaitsForEmptyEventLoop = false;
 
@@ -14,42 +14,55 @@ exports.handler = (event, context, callback) => {
   const id = JSON.parse(event.body);
   console.log(id);
 
-  console.info( `\n📕 \t ${fgCyan}${event.httpMethod} request to ${event.path}${fgReset} \t ➡️ \t 🙋 \n` );
+  console.info(`\n📕 \t ${fgCyan}${event.httpMethod} request to ${event.path}${fgReset} \t ➡️ \t 🙋 \n`);
 
   try {
 
-    db_connect.getConnection(function(err, connected) {
+        const [rows ] = await connection.execute(sql_query, [id.sql_id, id.note_id])
+    
+        // await connection.end();
+    
+        return {
+          statusCode: 200,
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(`Your note with id: ${id.note_id} has been deleted \t🗑️`)
+        };
 
-      connected.execute( sql_query, [id.sql_id, id.note_id], ( error, result) => {
+    // await connection.getConnection(function (err, connected) {
 
-      if (error){ 
+    //   connected.execute(sql_query, [id.sql_id, id.note_id], (error, result) => {
 
-        console.log('calling callback with error')
-        callback(error);
+    //     if (error) {
 
-      } else {
+    //       console.log('calling callback with error')
+    //       callback(error);
 
-        if(result.length === 0){
-          console.log("quote not in database, add it?");
-          }
-        
-        console.log(result)
+    //     } else {
 
-          callback( null, {
-              statusCode: 200,
-              headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(`Your note with id: ${id.note_id} has been deleted \t🗑️` )
-            })
-        }
-      })
+    //       if (result.length === 0) {
+    //         console.log("quote not in database, add it?");
+    //       }
 
-    if(err) { console.log('db_connect error = ', err); }
+    //       console.log(result)
 
-  })
-} catch (e) {
-    console.log('There is a problem communicating with the Quotes database: ', e);
+    //       return {
+    //         statusCode: 200,
+    //         headers: {
+    //           'Access-Control-Allow-Origin': '*',
+    //           'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(`Your note with id: ${id.note_id} has been deleted \t🗑️`)
+    //       }
+    //     }
+    //   })
+
+    //   if (err) { console.log('db connection error = ', err); }
+
+    // })
+  } catch (e) {
+    console.log('There is a problem communicating with the Not3d database: ', e);
   }
 }
