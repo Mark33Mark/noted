@@ -54,11 +54,7 @@ export const handler = async (event, context) => {
 
   try {
 
-        const result = await connection.execute(sql_query);
-
-        console.log("SQL_QUERY = ", sql_query);
-
-        // await connection.end();
+        await connection.execute(sql_query);
     
         return {
           statusCode: 200,

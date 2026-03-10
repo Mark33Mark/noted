@@ -18,9 +18,8 @@ export const handler = async (event, context) => {
 
   try {
 
+
         const [rows ] = await connection.execute(sql_query, [id.sql_id, id.note_id])
-    
-        // await connection.end();
     
         return {
           statusCode: 200,
@@ -31,37 +30,6 @@ export const handler = async (event, context) => {
           body: JSON.stringify(`Your note with id: ${id.note_id} has been deleted \t🗑️`)
         };
 
-    // await connection.getConnection(function (err, connected) {
-
-    //   connected.execute(sql_query, [id.sql_id, id.note_id], (error, result) => {
-
-    //     if (error) {
-
-    //       console.log('calling callback with error')
-    //       callback(error);
-
-    //     } else {
-
-    //       if (result.length === 0) {
-    //         console.log("quote not in database, add it?");
-    //       }
-
-    //       console.log(result)
-
-    //       return {
-    //         statusCode: 200,
-    //         headers: {
-    //           'Access-Control-Allow-Origin': '*',
-    //           'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(`Your note with id: ${id.note_id} has been deleted \t🗑️`)
-    //       }
-    //     }
-    //   })
-
-    //   if (err) { console.log('db connection error = ', err); }
-
-    // })
   } catch (e) {
     console.log('There is a problem communicating with the Not3d database: ', e);
   }

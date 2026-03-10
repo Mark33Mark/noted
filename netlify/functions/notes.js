@@ -17,8 +17,6 @@ export const handler = async (event, context) => {
 
     const [rows ] = await connection.execute(sql_query)
 
-    // await connection.end();
-
     return {
       statusCode: 200,
       headers: {
